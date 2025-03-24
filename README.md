@@ -1,1 +1,2 @@
-"# Django-X" 
+# Django X
+
