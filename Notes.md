@@ -21,3 +21,7 @@ python manage.py migrate
 
 Create a super user
 python manage.py createsuperuser
+
+
+Create new app in Django
+python manage.py startapp tweet
