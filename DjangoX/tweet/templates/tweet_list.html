@@ -1,26 +1,35 @@
-{% extends "DjangoX/templates/layout.html" %}
+{% extends "layout.html" %}
 
 {% block title %}
-Tweet
+  Tweet
 {% endblock %}
 
 {% block content %}
-
 <h1 class="text-center mt-4">Welcome to Django-X</h1>
 
 <a href="{% url 'tweet_create' %}" class="btn btn-primary mb-3">Create Tweet</a>
 <div class="container row gap-3">
-    {% for tweet in tweets %}
-    <div class="card" style="width: 18rem;">
-        <img src="{{tweet.photo.url}}" class="card-img-top" alt="...">
-        <div class="card-body">
-            <h5 class="card-title">{{ tweet.user.username }}</h5>
-            <p class="card-text">{{ tweet.text }}</p>
-            <a href="{% url 'tweet_edit' tweet.id %}" class="btn btn-primary">Edit</a>
-            <a href="{% url 'tweet_delete' tweet.id %}" class="btn btn-danger">Delete</a>
-        </div>
+  {% for tweet in tweets %}
+  <div class="card" style="width: 18rem">
+    {% if tweet.photo %}
+    <img src="{{ tweet.photo.url }}" class="card-img-top" alt="..." />
+    {% else %}
+    <div
+      class="card-img-top bg-secondary text-white d-flex align-items-center justify-content-center"
+      style="height: 200px"
+    >
+      <span>No Image</span>
     </div>
-    {% endfor %}
+    {% endif %}
+    <div class="card-body">
+      <h5 class="card-title">{{ tweet.user.username }}</h5>
+      <p class="card-text">{{ tweet.text }}</p>
+      {% if tweet.user == user %}
+      <a href="{% url 'tweet_edit' tweet.id %}" class="btn btn-primary">Edit</a>
+      <a href="{% url 'tweet_delete' tweet.id %}" class="btn btn-danger">Delete</a>
+      {% endif %}
+    </div>
+  </div>
+  {% endfor %}
 </div>
-
 {% endblock %}
