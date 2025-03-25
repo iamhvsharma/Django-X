@@ -2,7 +2,7 @@
 
 Django-X is a Twitter-inspired social media platform built with Django. This application allows users to create, view, edit, and delete tweets in a clean, modern interface with Bootstrap 5.
 
-<div style="position: relative; padding-bottom: 53.125%; height: 0;"><iframe src="https://www.loom.com/embed/1329da4a3442429291c49d8cdee92edb?sid=79868f0f-7687-4386-a3c8-d7af43c138a7" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe></div>
+Demo Video: https://www.loom.com/share/1329da4a3442429291c49d8cdee92edb?sid=7e2733ec-413a-4bca-bd1a-5f8cdbcf09d4
 
 ## Features
 
@@ -35,3 +35,27 @@ Follow these steps to set up Django-X on your local machine:
 ```bash
 git clone https://github.com/yourusername/Django-X.git
 cd Django-X
+
+# On Windows
+python -m venv .venv
+.venv\Scripts\activate
+
+# On macOS/Linux
+python -m venv .venv
+source .venv/bin/activate
+
+# Installs all the requirements
+pip install -r requirements.txt
+
+# Create migrations and migrate
+cd DjangoX
+python manage.py makemigrations
+python manage.py migrate
+
+# Create superuser to login as admin
+python manage.py createsuperuser
+
+# Run the server
+python manage.py runserver
+
+````
